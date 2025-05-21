@@ -1,0 +1,349 @@
+/* Reset and basics */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: #222;
+    transition: background 0.4s, color 0.4s;
+}
+
+/* Dark mode styles */
+body.dark {
+    background: linear-gradient(135deg, #232526, #1c1c1c);
+    color: #eee;
+}
+
+nav {
+    background: rgba(255 255 255 / 0.85);
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    transition: background 0.4s, color 0.4s;
+}
+
+body.dark nav {
+    background: rgba(40 40 40 / 0.9);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.7);
+}
+
+nav h1 {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+#themeToggle {
+    font-size: 1.3rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: inherit;
+    transition: transform 0.3s;
+}
+#themeToggle:hover {
+    transform: rotate(20deg);
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    width: 100%;
+    margin: 1rem auto;
+    background: rgba(255 255 255 / 0.9);
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: background 0.4s;
+}
+
+body.dark main {
+    background: rgba(35 35 35 / 0.95);
+}
+
+/* Chat container with starfield background */
+.chat-container {
+    flex-grow: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-height: 70vh;
+    scrollbar-width: thin;
+    scrollbar-color: #66a6ff transparent;
+    position: relative;  /* For stars */
+    scroll-behavior: smooth;
+    background: transparent; /* So stars show through */
+}
+
+/* Scrollbar styles */
+.chat-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chat-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.chat-container::-webkit-scrollbar-thumb {
+    background: #66a6ff;
+    border-radius: 10px;
+}
+
+/* Star styles (small circles) */
+.chat-container .star {
+    position: absolute;
+    background: rgba(255 255 255 / 0.8);
+    border-radius: 50%;
+    pointer-events: none;
+    filter: drop-shadow(0 0 2px #66a6ff);
+    transition: transform 0.3s ease;
+}
+
+/* Message bubbles */
+.message {
+    max-width: 80%;
+    padding: 12px 18px;
+    border-radius: 20px;
+    font-size: 1rem;
+    line-height: 1.4;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    box-shadow: 0 4px 10px rgb(0 0 0 / 0.12);
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInUp 0.3s forwards;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* User messages */
+.message.user {
+    align-self: flex-end;
+    background: #007bff;
+    color: white;
+    border-bottom-right-radius: 2px;
+}
+
+/* AI messages */
+.message.ai {
+    align-self: flex-start;
+    background: #e3f2fd;
+    color: #0d47a1;
+    border-bottom-left-radius: 2px;
+    font-family: 'Segoe UI Mono', monospace;
+    white-space: normal; /* so <br> works */
+  word-wrap: break-word;
+}
+
+body.dark .message.ai {
+    background: #1e2a38;
+    color: #82b1ff;
+}
+
+/* Typing indicator style */
+.message.typing {
+    align-self: flex-start;
+    background: transparent;
+    font-family: 'Segoe UI Mono', monospace;
+    color: #666;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    font-style: italic;
+}
+
+/* Three blinking dots */
+.message.typing .dot {
+    width: 8px;
+    height: 8px;
+    background-color: #666;
+    border-radius: 50%;
+    animation: blink 1.4s infinite;
+}
+
+.message.typing .dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.message.typing .dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes blink {
+    0%, 50%, 100% {
+        opacity: 1;
+    }
+    25%, 75% {
+        opacity: 0.3;
+    }
+}
+
+/* Input area */
+.input-area {
+    display: flex;
+    padding: 1rem;
+    border-top: 1px solid #ccc;
+    background: #f9f9f9;
+    transition: background 0.4s;
+}
+
+body.dark .input-area {
+    background: #2c2c2c;
+    border-top: 1px solid #444;
+}
+
+/* Input field */
+#userInput {
+    flex-grow: 1;
+    padding: 12px 15px;
+    font-size: 1rem;
+    border: 1.8px solid #ccc;
+    border-radius: 25px;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#userInput:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0,123,255,0.6);
+}
+
+/* Send button */
+#sendBtn {
+    margin-left: 10px;
+    background: #007bff;
+    border: none;
+    padding: 0 20px;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.15s ease;
+}
+
+#sendBtn:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Typewriter cursor (for typing effect if needed) */
+.typewriter-cursor {
+    display: inline-block;
+    width: 8px;
+    background-color: currentColor;
+    animation: blink 1s infinite;
+    margin-left: 2px;
+    border-radius: 2px;
+    vertical-align: bottom;
+}
+
+/* Responsive improvements */
+@media (max-width: 700px) {
+    main {
+        max-width: 100%;
+        margin: 0.5rem;
+        border-radius: 12px;
+    }
+}
+
+/* Add some smooth scroll to the chat container */
+.chat-container {
+    scroll-behavior: smooth;
+}
+
+
+/* Pause/Resume button style */
+#pauseResumeBtn {
+  width: 38px;
+  height: 38px;
+  margin-left: 10px;
+  border-radius: 50%;
+  background: #007bff;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s, transform 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#pauseResumeBtn:hover {
+  background: #0056b3;
+  transform: scale(1.1);
+}
+
+/* Pause icon: two vertical bars */
+#pauseResumeBtn.pause::before,
+#pauseResumeBtn.pause::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 14px;
+  background: white;
+  border-radius: 1.5px;
+  top: 12px;
+}
+
+#pauseResumeBtn.pause::before {
+  left: 12px;
+}
+
+#pauseResumeBtn.pause::after {
+  right: 12px;
+}
+
+/* Play icon: right-pointing triangle */
+#pauseResumeBtn.play::before {
+  content: '';
+  position: absolute;
+  left: 14px;
+  top: 12px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 14px solid white;
+  border-radius: 1.5px;
+}
+
+/* Remove pseudo elements if no class */
+#pauseResumeBtn:not(.pause):not(.play)::before,
+#pauseResumeBtn:not(.pause):not(.play)::after {
+  content: none;
+}
+
+#starCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+body.light-mode #starCanvas {
+  display: none;
+}
+

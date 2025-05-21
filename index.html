@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gemini AI Chat</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <nav>
+    <h1>AI ChatBot</h1>
+    <button id="themeToggle" aria-label="Toggle Dark/Light Mode">🌙</button>
+  </nav>
+
+  <main>
+    <div class="chat-container" id="chatContainer">
+      <!-- Chat messages will appear here -->
+    </div>
+
+    <div class="input-area">
+  <input type="text" id="userInput" placeholder="Type your question..." autocomplete="off" />
+  <button id="pauseResumeBtn" aria-label="Pause/Resume Chat" title="Pause/Resume Chat"></button>
+  <button id="sendBtn">Ask</button>
+</div>
+
+  </main>
+
+  <canvas id="starCanvas"></canvas>
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>
