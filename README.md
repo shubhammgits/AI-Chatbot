@@ -5,3 +5,5 @@ Tech Stack
 - CSS <br>
 - JavaScript <br>
 - Google Gemini API (via fetch()) <br>
+
+Deployed Link : https://shubhammgits.github.io/AI-Chatbot/
