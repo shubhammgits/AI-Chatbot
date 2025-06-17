@@ -60,7 +60,7 @@ AI-Chatbot/
 <h2>🙋‍♂️ Author</h2>
 <p>
   Developed by <b>Shubham Kumar</b> 👨‍💻<br />
-  🔗 <a href="https://www.linkedin.com/in/your-linkedin-profile/">LinkedIn</a> |
+  🔗 <a href="https://www.linkedin.com/in/shhshubham/LinkedIn</a> |
   💼 <a href="https://github.com/shubhammgits">GitHub</a>
 </p>
 
