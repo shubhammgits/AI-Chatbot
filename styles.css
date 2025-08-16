@@ -113,7 +113,7 @@ body.dark main {
     transition: transform 0.3s ease;
 }
 
-/* Message bubbles */
+
 .message {
     max-width: 80%;
     padding: 12px 18px;
