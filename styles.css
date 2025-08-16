@@ -103,7 +103,7 @@ body.dark main {
     border-radius: 10px;
 }
 
-/* Star styles (small circles) */
+
 .chat-container .star {
     position: absolute;
     background: rgba(255 255 255 / 0.8);
