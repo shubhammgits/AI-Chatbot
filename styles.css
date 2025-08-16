@@ -86,7 +86,7 @@ body.dark main {
     scrollbar-color: #66a6ff transparent;
     position: relative;  
     scroll-behavior: smooth;
-    background: transparent; /* So stars show through */
+    background: transparent; 
 }
 
 /* Scrollbar styles */
