@@ -14,7 +14,7 @@ body {
     transition: background 0.4s, color 0.4s;
 }
 
-/* Dark mode styles */
+
 body.dark {
     background: linear-gradient(135deg, #232526, #1c1c1c);
     color: #eee;
