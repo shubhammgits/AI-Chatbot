@@ -89,7 +89,7 @@ body.dark main {
     background: transparent; 
 }
 
-/* Scrollbar styles */
+
 .chat-container::-webkit-scrollbar {
     width: 8px;
 }
