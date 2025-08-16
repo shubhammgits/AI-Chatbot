@@ -136,7 +136,7 @@ body.dark main {
     }
 }
 
-/* User messages */
+
 .message.user {
     align-self: flex-end;
     background: #007bff;
