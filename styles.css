@@ -84,7 +84,7 @@ body.dark main {
     max-height: 70vh;
     scrollbar-width: thin;
     scrollbar-color: #66a6ff transparent;
-    position: relative;  /* For stars */
+    position: relative;  
     scroll-behavior: smooth;
     background: transparent; /* So stars show through */
 }
