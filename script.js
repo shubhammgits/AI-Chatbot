@@ -3,7 +3,7 @@ const userInput = document.getElementById("userInput");
 const sendBtn = document.getElementById("sendBtn");
 const themeToggle = document.getElementById("themeToggle");
 
-const apiKey = "AIzaSyC34xxeu0LEWmtgq84nEHIfcys85DhQnQQ"; // Your API key here
+const apiKey = "AIzaSyC34xxeu0LEWmtgq84nEHIfcys85DhQnQQ"; 
 
 let darkMode = localStorage.getItem("darkMode") === "true";
 
